@@ -34,12 +34,12 @@ class _HomePageState extends State<HomePage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Confirm deletion"),
-        content: const Text("Are you sure you want to delete this assignment?"),
+        title: const Text(" Confirmar eliminacion"),
+        content: const Text("¿Estas seguro de eliminar esta tarea?"),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text("Cancel"),
+            child: const Text("Cancelar"),
           ),
           ElevatedButton(
             onPressed: () {
@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.red,
             ),
-            child: const Text("Delete"),
+            child: const Text("Eliminar"),
           ),
         ],
       ),
@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Edit task"),
+        title: const Text("Editar tarea"),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -77,21 +77,21 @@ class _HomePageState extends State<HomePage> {
               controller: _dialogController,
               autofocus: true,
               decoration: const InputDecoration(
-                hintText: "Edit assignment...",
+                hintText: "Editar tarea...",
               ),
             ),
             const SizedBox(height: 10),
             TextField(
               controller: _descriptionController,
               decoration: const InputDecoration(
-                hintText: "Edit description...",
+                hintText: "Editar descripcion...",
               ),
             ),
             const SizedBox(height: 10),
             TextField(
               controller: _dateController,
               decoration: const InputDecoration(
-                hintText: "Edit due date...",
+                hintText: "Editar fecha...",
               ),
             ),
           ],
@@ -104,7 +104,7 @@ class _HomePageState extends State<HomePage> {
               _descriptionController.clear();
               _dateController.clear();
             },
-            child: const Text("Cancel"),
+            child: const Text("Cancelar"),
           ),
           ElevatedButton(
             onPressed: () {
@@ -120,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                 Navigator.of(context).pop();
               }
             },
-            child: const Text("Save"),
+            child: const Text("Guardar"),
           ),
         ],
       ),
@@ -133,14 +133,14 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("My assignments ($pendingTasks pending )"),
+        title: Text("Mis tareas ($pendingTasks pendientes )"),
         centerTitle: true,
       ),
       body: Column(
         children: [
           Expanded(
             child: _tasks.isEmpty
-                ? const Center(child: Text("No task added!"))
+                ? const Center(child: Text("No tareas agregadas!"))
                 : ListView.builder(
                     itemCount: _tasks.length,
                     itemBuilder: (context, index) {
@@ -179,17 +179,17 @@ class _HomePageState extends State<HomePage> {
                                   showDialog(
                                     context: context,
                                     builder: (context) => AlertDialog(
-                                      title: const Text("Description"),
+                                      title: const Text("Descripcion"),
                                       content: Text(
                                         _tasks[index].description.isNotEmpty
                                             ? _tasks[index].description
-                                            : "No description provided.",
+                                            : "No descripcion disponible.",
                                       ),
                                       actions: [
                                         TextButton(
                                           onPressed: () =>
                                               Navigator.of(context).pop(),
-                                          child: const Text("Close"),
+                                          child: const Text("Cerrar"),
                                         ),
                                       ],
                                     ),
@@ -221,7 +221,7 @@ class _HomePageState extends State<HomePage> {
           showDialog(
             context: context,
             builder: (context) => AlertDialog(
-              title: const Text("New assignment"),
+              title: const Text("Nueva tarea"),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -229,21 +229,21 @@ class _HomePageState extends State<HomePage> {
                     controller: _dialogController,
                     autofocus: true,
                     decoration: const InputDecoration(
-                      hintText: "Write an assignments...",
+                      hintText: "Escribir una tarea...",
                     ),
                   ),
                   const SizedBox(height: 10),
                   TextField(
                     controller: _descriptionController,
                     decoration: const InputDecoration(
-                      hintText: "Add a description...",
+                      hintText: "Agregar una descripcion...",
                     ),
                   ),
                   const SizedBox(height: 10),
                   TextField(
                     controller: _dateController,
                     decoration: const InputDecoration(
-                      hintText: "Set a due date...",
+                      hintText: "Agregar una fecha...",
                     ),
                   ),
                 ],
@@ -256,7 +256,7 @@ class _HomePageState extends State<HomePage> {
                     _descriptionController.clear();
                     _dateController.clear();
                   },
-                  child: const Text("Cancel"),
+                  child: const Text("Cancelar"),
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -276,7 +276,7 @@ class _HomePageState extends State<HomePage> {
                       Navigator.of(context).pop();
                     }
                   },
-                  child: const Text("Add"),
+                  child: const Text("Agregar"),
                 ),
               ],
             ),
